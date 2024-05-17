@@ -1,0 +1,33 @@
+{
+    
+
+    "passMeterCheck":[
+        
+        {
+            "passw": "sanbercodeqaaaaaaaaaaaaaaaaaaa",
+            "confirmPass": "sanbercodeqa",
+            "passlabel": "Weak",
+            "err" :"Minimum of different classes of characters in password is 3. Classes of characters: Lower Case, Upper Case, Digits, Special Characters."
+        },
+        {
+            "passw": "QA56",
+            "confirmPass": "QA56",
+            "passlabel": "Weak",
+            "err" :"Minimum length of this field must be equal or greater than 8 symbols. Leading and trailing spaces will be ignored."
+        },
+        {
+            "passw": "123456789",
+            "confirmPass": "123456789",
+            "passlabel": "Weak",
+            "err" :"Minimum of different classes of characters in password is 3. Classes of characters: Lower Case, Upper Case, Digits, Special Characters."
+        }
+    ],
+    "validation":[{
+        "passw": "sanberQA56",
+        "confirmPass": "sanberQA56"
+    },
+    {
+        "passw": "sanber@QA56",
+        "confirmPass": "salah"
+    }]
+}

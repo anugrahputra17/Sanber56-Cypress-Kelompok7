@@ -1,0 +1,16 @@
+[
+    {
+        "firstName": "ria",
+        "lastName": "M",
+        "email": "testedbyria@gmail.com",
+        "pass":"sanberQA56",
+        "confirmPass" : "sanberQA56"
+    },
+    {
+        "firstName": "sanber",
+        "lastName": "QA56",
+        "email": "salahgmail.com",
+        "pass":"sanberQA56",
+        "confirmPass" : "sanberQA56"
+    }
+]
