@@ -24,9 +24,20 @@
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
 
-Cypress.Commands.add('login', (email, password) => {
-    cy.visit('https://magento.softwaretestingboard.com/customer/account/login/referer/aHR0cHM6Ly9tYWdlbnRvLnNvZnR3YXJldGVzdGluZ2JvYXJkLmNvbS8%2C/')
-    cy.get('#email').type(email)
-    cy.get('#pass').type(password)
-    cy.get('#send2').click()
-  })
+Cypress.Commands.add('verify',() => {
+  cy.get('.message-error').should('contain.text','sign-in was incorrect')
+})
+
+Cypress.Commands.add('emptyemail',() => {
+  cy.get('#email').clear()
+cy.get('#pass').type('password')
+cy.get('#send2').click()
+cy.get('.mage-error').should('contain.text','required')
+})
+
+Cypress.Commands.add('emptypassword',() => {
+  cy.get('#email').type('test@gmail.com')
+cy.get('#pass').clear()
+cy.get('#send2').click()
+cy.get('.message-error').should('contain.text','required')
+})
