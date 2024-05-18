@@ -32,7 +32,7 @@ Cypress.Commands.add('emptyemail',() => {
   cy.get('#email').clear()
 cy.get('#pass').type('password')
 cy.get('#send2').click()
-cy.get('.message-error').should('contain.text','required')
+cy.get('.mage-error, .message-error').should('contain.text','required')
 })
 
 Cypress.Commands.add('emptypassword',() => {
