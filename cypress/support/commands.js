@@ -39,5 +39,5 @@ Cypress.Commands.add('emptypassword',() => {
   cy.get('#email').type('test@gmail.com')
 cy.get('#pass').clear()
 cy.get('#send2').click()
-cy.get('.message-error').should('contain.text','required')
+cy.get('.mage-error, .message-error').should('contain.text','required')
 })
