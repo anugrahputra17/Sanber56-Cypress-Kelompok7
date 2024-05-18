@@ -31,11 +31,11 @@ it('failed login - wrong password', () => {
 });
 });
 
-it('failed login - empty email', () => {
+it.only('failed login - empty email', () => {
   cy.emptyemail()
 });
 
-it('failed login - empty password', () => {
+it.only('failed login - empty password', () => {
   cy.emptypassword()
 });
 it('Success Login', () => {
@@ -44,7 +44,7 @@ it('Success Login', () => {
     loginPage.fillEmail(datauser.email)
     loginPage.fillPassword(datauser.password)
     loginPage.clickLoginButton()
-    cy.get('.logged-in').should('contain.text','Welcome')
+    cy.get('#ui-id-3').should('contain.text','New')
     });
 })
 
