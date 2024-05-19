@@ -42,7 +42,7 @@ describe('createAccount spec', () => {
             createAccountPage.inputConfirmPass(userdata.confirmPass)
             createAccountPage.clickCreate()
             cy.wait(100)
-            cy.get('.message-error').should('contain.text', "There is already an account with this email address. If you are sure that it is your email address, click here to get your password and access your account.")
+            cy.verifyAccountExists()
         })
     })
 
@@ -58,7 +58,7 @@ describe('createAccount spec', () => {
             createAccountPage.inputConfirmPass(userdata.confirmPass)
             createAccountPage.clickCreate()
             // cy.wait(100)
-            cy.get(createAccountPage.emailError).should('contain.text', "Please enter a valid email address (Ex: johndoe@domain.com).")
+            cy.verifyEmailInvalid()
         })
     })
 
@@ -73,13 +73,13 @@ describe('createAccount spec', () => {
             createAccountPage.inputPass(passData.passw)
             createAccountPage.inputConfirmPass(passData.confirmPass)
             createAccountPage.clickCreate()
-            cy.get(createAccountPage.passConfirmError).should('contain.text', "Please enter the same value again.")
+            cy.verifyConfirmPassMatch()        
         })
     })
 
 
-    // Case 5 - validasi password strength
-    it('Password check', () => {
+    // Case 5 - validasi password strength & error
+    it('Password error check', () => {
         cy.fixture('passValidation.json').then((psw) => {
             const passData = psw[0]
             psw.passMeterCheck.forEach((passData) => {
@@ -106,7 +106,9 @@ describe('createAccount spec', () => {
             createAccountPage.inputPass(passData.passw)
             createAccountPage.inputConfirmPass(passData.confirmPass)
             createAccountPage.clickCreate()
-            cy.get('.message-success > div').should('be.visible').and('contain.text', "Thank you for registering with Main Website Store.")
+            cy.wait(1000)
+            // cy.get('.message-success > div').should('be.visible').and('contain.text', "Thank you for registering with Main Website Store.")
+            cy.verifyRegisterSuccess()
         })
     })
 

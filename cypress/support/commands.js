@@ -24,6 +24,22 @@
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
 
+Cypress.Commands.add('verifyAccountExists',() => {
+  cy.get('.message-error').should('contain.text', "There is already an account with this email address. If you are sure that it is your email address, click here to get your password and access your account.")
+})
+
+Cypress.Commands.add('verifyEmailInvalid',() => {
+  cy.get('#email_address-error').should('contain.text', "Please enter a valid email address (Ex: johndoe@domain.com).")
+})
+
+Cypress.Commands.add('verifyConfirmPassMatch',() => {
+  cy.get('#password-confirmation-error').should('contain.text', "Please enter the same value again.")
+})
+
+Cypress.Commands.add('verifyRegisterSuccess',() => {
+  cy.get('.message-success > div').should('be.visible').and('contain.text', "Thank you for registering with Main Website Store.")
+})
+
 Cypress.Commands.add('verify',() => {
   cy.get('.message-error').should('contain.text','sign-in was incorrect')
 })
