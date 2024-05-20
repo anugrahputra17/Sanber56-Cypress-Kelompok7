@@ -57,3 +57,19 @@ cy.get('#pass').clear()
 cy.get('#send2').click()
 cy.get('.mage-error, .message-error').should('contain.text','required')
 })
+
+
+Cypress.Commands.add('loginSuccess', () => {
+  cy.get('#email').clear().type('testingg@gmail.com')
+  cy.get('#pass').type('Testing123')
+  cy.get('#send2').click()
+})
+
+Cypress.Commands.add('addToCart', () => {
+  cy.get(':nth-child(1) > .product-item-info > .product-item-photo > .product-image-container > .product-image-wrapper > .product-image-photo').click()
+  cy.get('#option-label-size-143-item-167').should('be.visible').click()
+  cy.get('#option-label-color-93-item-56').click()
+  cy.get('#qty').clear().type('2')
+  cy.get('#product-addtocart-button').click()
+  cy.get('.message-success').should('be.visible')
+})
