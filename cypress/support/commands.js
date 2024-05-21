@@ -59,14 +59,36 @@ cy.get('.mage-error, .message-error').should('contain.text','required')
 })
 
 
+Cypress.Commands.add('createAccount', () => {
+  function randomEmail(){
+    const randomString = Math.random().toString(36).substring(2,10)
+    const email = randomString + "@gmail.com"
+    return email
+  }
+
+  let userEmail = randomEmail()
+
+  cy.visit('/customer/account/create/')
+  cy.get('#firstname').clear().type('Sanber')
+  cy.get('#lastname').clear().type('QA56')
+  cy.get('#email_address').clear().type(userEmail)
+  cy.get('#password').type('sanberQA56')
+  cy.get('#password-confirmation').type('sanberQA56')
+  cy.get('#form-validate > .actions-toolbar > div.primary > .action').click()
+  cy.wait(1000)
+  cy.verifyRegisterSuccess()
+})
+
 Cypress.Commands.add('loginSuccess', () => {
+  cy.visit('customer/account/login/referer/aHR0cHM6Ly9tYWdlbnRvLnNvZnR3YXJldGVzdGluZ2JvYXJkLmNvbS8%2C/')
   cy.get('#email').clear().type('testingg@gmail.com')
   cy.get('#pass').type('Testing123')
   cy.get('#send2').click()
 })
 
 Cypress.Commands.add('addToCart', () => {
-  cy.get(':nth-child(1) > .product-item-info > .product-item-photo > .product-image-container > .product-image-wrapper > .product-image-photo').click()
+
+  cy.visit('radiant-tee.html')
   cy.get('#option-label-size-143-item-167').should('be.visible').click()
   cy.get('#option-label-color-93-item-56').click()
   cy.get('#qty').clear().type('2')
