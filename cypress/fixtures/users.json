@@ -1,5 +1,5 @@
 [
-    {
+   {
       "email": "testingg@gmail.com",
       "password": "Testing123"
    },
@@ -8,12 +8,15 @@
       "password": "Testing1234"
    },
    {
-    "email": "testgmailcom",
-    "password": "pass123465634"
-    },
-     {
-     "email": "test1@gmail.com",
-     "password": "Testing123"
-     }
- ]
-
+      "email": "testgmailcom",
+      "password": "pass123465634"
+   },
+   {
+      "email": "test1@gmail.com",
+      "password": "Testing123"
+   },
+   {
+      "email": "abdulghofur@gmailtest.com",
+      "password": "@Bdul1234"
+   }
+]
