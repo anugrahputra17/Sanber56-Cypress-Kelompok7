@@ -38,6 +38,10 @@ it.only('failed login - empty email', () => {
 it.only('failed login - empty password', () => {
   cy.emptypassword()
 });
+
+it.only('failed login - empty password and email', () => {
+  cy.emptyemailpassword()
+});
 it('Success Login', () => {
     cy.fixture('users.json').then((users) => {
       const datauser = users[0];

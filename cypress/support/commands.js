@@ -41,3 +41,10 @@ cy.get('#pass').clear()
 cy.get('#send2').click()
 cy.get('.mage-error, .message-error').should('contain.text','required')
 })
+
+Cypress.Commands.add('emptyemailpassword',() => {
+  cy.get('#email').clear()
+cy.get('#pass').clear()
+cy.get('#send2').click()
+cy.get('.mage-error, .message-error').should('contain.text','required')
+})
